@@ -1,0 +1,31 @@
+2025-11-23 17:18:03,484 - __main__ - INFO - INICIANDO SISTEMA ETL CON PROCEDIMIENTOS ALMACENADOS
+2025-11-23 17:18:03,667 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-11-23 17:18:03,668 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-11-23 17:18:03,668 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-11-23 17:18:03,671 - etl_procedures.extract - INFO - [OK] Conexion establecida para EXTRACCION
+2025-11-23 17:18:03,672 - etl_procedures.extract - INFO - [*] Conexion cerrada
+2025-11-23 17:18:03,904 - etl_procedures.load - INFO - [OK] Conexiones establecidas para CARGA
+2025-11-23 17:18:03,905 - etl_procedures.load - INFO - [*] Conexiones cerradas
+2025-11-23 17:18:04,005 - etl_procedures.extract - INFO - [OK] Conexion establecida para EXTRACCION
+2025-11-23 17:18:04,006 - etl_procedures.extract - INFO - [+] INICIANDO FASE DE EXTRACCION
+2025-11-23 17:18:04,068 - etl_procedures.extract - INFO - [*] sp_etl_extract_proyectos: 0 registros extraidos
+2025-11-23 17:18:04,115 - etl_procedures.extract - INFO - [*] sp_etl_extract_clientes: 0 registros extraidos
+2025-11-23 17:18:04,215 - etl_procedures.extract - INFO - [*] sp_etl_extract_empleados: 0 registros extraidos
+2025-11-23 17:18:04,261 - etl_procedures.extract - INFO - [*] sp_etl_extract_contratos: 0 registros extraidos
+2025-11-23 17:18:04,405 - etl_procedures.extract - INFO - [*] sp_etl_extract_asignaciones: 0 registros extraidos
+2025-11-23 17:18:04,591 - etl_procedures.extract - INFO - [*] sp_etl_extract_hitos: 0 registros extraidos
+2025-11-23 17:18:04,793 - etl_procedures.extract - INFO - [*] sp_etl_extract_tareas: 0 registros extraidos
+2025-11-23 17:18:05,010 - etl_procedures.extract - INFO - [*] sp_etl_extract_gastos: 0 registros extraidos
+2025-11-23 17:18:05,155 - etl_procedures.extract - INFO - [*] sp_etl_extract_pruebas: 0 registros extraidos
+2025-11-23 17:18:05,155 - etl_procedures.extract - INFO - [OK] EXTRACCION COMPLETADA: 0 registros totales
+2025-11-23 17:18:05,156 - etl_procedures.extract - INFO - [*] Conexion cerrada
+2025-11-23 17:18:05,158 - __main__ - INFO - [OK] EXTRACCION COMPLETADA: 0 registros
+2025-11-23 17:18:05,255 - etl_procedures.transform - INFO - [OK] Conexion establecida para TRANSFORMACION
+2025-11-23 17:18:05,256 - etl_procedures.transform - INFO - [+] INICIANDO TRANSFORMACION DE DIMENSIONES
+2025-11-23 17:18:05,317 - etl_procedures.transform - INFO - [*] sp_etl_transform_dim_proyectos: 0 registros procesados
+2025-11-23 17:18:05,336 - etl_procedures.transform - ERROR - [ERROR] Error en sp_etl_transform_dim_tiempo: 3065 (HY000): Expression #1 of ORDER BY clause is not in SELECT list, references column 'fechas_unicas.fecha_completa' which is not in SELECT list; this is incompatible with DISTINCT
+2025-11-23 17:18:05,336 - etl_procedures.transform - ERROR - [FAIL] ERROR EN TRANSFORMACION DIMENSIONES: 3065 (HY000): Expression #1 of ORDER BY clause is not in SELECT list, references column 'fechas_unicas.fecha_completa' which is not in SELECT list; this is incompatible with DISTINCT
+2025-11-23 17:18:05,337 - etl_procedures.transform - ERROR - [FAIL] ERROR EN TRANSFORMACION: 3065 (HY000): Expression #1 of ORDER BY clause is not in SELECT list, references column 'fechas_unicas.fecha_completa' which is not in SELECT list; this is incompatible with DISTINCT
+2025-11-23 17:18:05,338 - etl_procedures.transform - INFO - [*] Conexion cerrada
+2025-11-23 17:18:05,338 - __main__ - ERROR - [FAIL] ERROR EN TRANSFORMACION: 3065 (HY000): Expression #1 of ORDER BY clause is not in SELECT list, references column 'fechas_unicas.fecha_completa' which is not in SELECT list; this is incompatible with DISTINCT
+2025-11-23 17:18:05,339 - __main__ - ERROR - [FAIL] Pipeline fallido: 3065 (HY000): Expression #1 of ORDER BY clause is not in SELECT list, references column 'fechas_unicas.fecha_completa' which is not in SELECT list; this is incompatible with DISTINCT

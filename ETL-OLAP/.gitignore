@@ -1,0 +1,15 @@
+#Entornos virtuales
+venv/
+.env
+
+#Archivos temporales de Python
+__pycache__/
+*.pyc
+*.log
+
+#Datos locales
+logs/etl_log.txt
+*.csv
+
+#Configuraciones sensibles
+config/db_config.py

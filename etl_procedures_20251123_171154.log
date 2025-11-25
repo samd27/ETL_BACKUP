@@ -1,0 +1,17 @@
+2025-11-23 17:13:11,628 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-11-23 17:13:11,629 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-11-23 17:13:11,629 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-11-23 17:13:11,733 - etl_procedures.load - INFO - [OK] Conexiones establecidas para CARGA
+2025-11-23 17:13:11,752 - etl_procedures.load - INFO - [*] Conexiones cerradas
+2025-11-23 17:13:17,252 - __main__ - INFO - INICIANDO SISTEMA ETL CON PROCEDIMIENTOS ALMACENADOS
+2025-11-23 17:13:17,365 - etl_procedures.extract - INFO - [OK] Conexion establecida para EXTRACCION
+2025-11-23 17:13:17,366 - etl_procedures.extract - INFO - [*] Conexion cerrada
+2025-11-23 17:13:17,530 - etl_procedures.load - INFO - [OK] Conexiones establecidas para CARGA
+2025-11-23 17:13:17,531 - etl_procedures.load - INFO - [*] Conexiones cerradas
+2025-11-23 17:13:17,641 - etl_procedures.extract - INFO - [OK] Conexion establecida para EXTRACCION
+2025-11-23 17:13:17,642 - etl_procedures.extract - INFO - [+] INICIANDO FASE DE EXTRACCION
+2025-11-23 17:13:17,737 - etl_procedures.extract - ERROR - [ERROR] Error en sp_etl_extract_proyectos: unsupported format string passed to NoneType.__format__
+2025-11-23 17:13:17,738 - etl_procedures.extract - ERROR - [FAIL] ERROR EN EXTRACCION: unsupported format string passed to NoneType.__format__
+2025-11-23 17:13:17,739 - etl_procedures.extract - INFO - [*] Conexion cerrada
+2025-11-23 17:13:17,739 - __main__ - ERROR - [FAIL] ERROR EN EXTRACCION: unsupported format string passed to NoneType.__format__
+2025-11-23 17:13:17,740 - __main__ - ERROR - [FAIL] Pipeline fallido: unsupported format string passed to NoneType.__format__

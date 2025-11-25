@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Dashboard KPIs</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 5px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Dashboard KPIs OLAP</h1>
+    
+    <div id="test-results">
+        <p>Ejecutando pruebas...</p>
+    </div>
+    
+    <script>
+        async function runTests() {
+            const results = document.getElementById('test-results');
+            results.innerHTML = '<h2>Resultados de las pruebas:</h2>';
+            
+            // Test 1: API KPIs
+            try {
+                const kpisResponse = await fetch('/api/kpis');
+                const kpisData = await kpisResponse.json();
+                
+                if (kpisData.success) {
+                    results.innerHTML += `
+                        <div class="test-result success">
+                            ✅ <strong>API KPIs:</strong> OK - ${Object.keys(kpisData.kpis).length} KPIs cargados
+                        </div>
+                    `;
+                    
+                    // Mostrar algunos KPIs de ejemplo
+                    const kpisList = Object.entries(kpisData.kpis).slice(0, 3).map(([key, kpi]) => 
+                        `${key}: ${kpi.valor}${kpi.unidad} (${kpi.estado})`
+                    ).join(', ');
+                    
+                    results.innerHTML += `
+                        <div class="test-result">
+                            <strong>Ejemplo KPIs:</strong> ${kpisList}
+                        </div>
+                    `;
+                } else {
+                    results.innerHTML += `
+                        <div class="test-result error">
+                            ❌ <strong>API KPIs:</strong> Error - ${kpisData.error || 'Respuesta inválida'}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML += `
+                    <div class="test-result error">
+                        ❌ <strong>API KPIs:</strong> Error de conexión - ${error.message}
+                    </div>
+                `;
+            }
+            
+            // Test 2: API Alertas
+            try {
+                const alertasResponse = await fetch('/api/alertas');
+                const alertasData = await alertasResponse.json();
+                
+                if (alertasData.success) {
+                    results.innerHTML += `
+                        <div class="test-result success">
+                            ✅ <strong>API Alertas:</strong> OK - ${alertasData.total_alertas} alertas encontradas
+                        </div>
+                    `;
+                } else {
+                    results.innerHTML += `
+                        <div class="test-result error">
+                            ❌ <strong>API Alertas:</strong> Error - ${alertasData.error || 'Respuesta inválida'}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML += `
+                    <div class="test-result error">
+                        ❌ <strong>API Alertas:</strong> Error de conexión - ${error.message}
+                    </div>
+                `;
+            }
+            
+            // Test 3: API Stats
+            try {
+                const statsResponse = await fetch('/api/stats');
+                const statsData = await statsResponse.json();
+                
+                if (statsData.success) {
+                    results.innerHTML += `
+                        <div class="test-result success">
+                            ✅ <strong>API Stats:</strong> OK - ${statsData.stats.proyectos_analizados} proyectos analizados
+                        </div>
+                    `;
+                } else {
+                    results.innerHTML += `
+                        <div class="test-result error">
+                            ❌ <strong>API Stats:</strong> Error - ${statsData.error || 'Respuesta inválida'}
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                results.innerHTML += `
+                    <div class="test-result error">
+                        ❌ <strong>API Stats:</strong> Error de conexión - ${error.message}
+                    </div>
+                `;
+            }
+            
+            // Agregar botón para ir al dashboard principal
+            results.innerHTML += `
+                <div style="margin-top: 20px;">
+                    <a href="/" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">
+                        🚀 Ir al Dashboard Principal
+                    </a>
+                </div>
+            `;
+        }
+        
+        // Ejecutar pruebas al cargar la página
+        runTests();
+    </script>
+</body>
+</html>

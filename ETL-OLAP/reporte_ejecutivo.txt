@@ -1,0 +1,1 @@
+REPORTE EJECUTIVO - ANÁLISIS OLAP DE PROYECTOS\n============================================================\nFecha: 2025-11-22 23:16:36\nTotal proyectos: 74\nClientes activos: 56\n\nINSIGHTS AUTOMÁTICOS:\n- 🏆 El cliente 99 es el más rentable con $138,092.50 bajo presupuesto\n- 🚨 74.3% de proyectos superan el presupuesto\n

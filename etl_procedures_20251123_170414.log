@@ -1,0 +1,15 @@
+2025-11-23 17:05:43,220 - __main__ - INFO - INICIANDO SISTEMA ETL CON PROCEDIMIENTOS ALMACENADOS
+2025-11-23 17:05:43,443 - mysql.connector - INFO - package: mysql.connector.plugins
+2025-11-23 17:05:43,444 - mysql.connector - INFO - plugin_name: caching_sha2_password
+2025-11-23 17:05:43,444 - mysql.connector - INFO - AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+2025-11-23 17:05:43,448 - etl_procedures.extract - INFO - [OK] Conexion establecida para EXTRACCION
+2025-11-23 17:05:43,450 - etl_procedures.extract - INFO - [*] Conexion cerrada
+2025-11-23 17:05:43,662 - etl_procedures.load - INFO - [OK] Conexiones establecidas para CARGA
+2025-11-23 17:05:43,663 - etl_procedures.load - INFO - [*] Conexiones cerradas
+2025-11-23 17:05:43,764 - etl_procedures.extract - INFO - [OK] Conexion establecida para EXTRACCION
+2025-11-23 17:05:43,765 - etl_procedures.extract - INFO - [+] INICIANDO FASE DE EXTRACCION
+2025-11-23 17:05:43,790 - etl_procedures.extract - ERROR - [ERROR] Error en sp_etl_extract_proyectos: 1054 (42S22): Unknown column 'p.DescripcionProyecto' in 'field list'
+2025-11-23 17:05:43,791 - etl_procedures.extract - ERROR - [FAIL] ERROR EN EXTRACCION: 1054 (42S22): Unknown column 'p.DescripcionProyecto' in 'field list'
+2025-11-23 17:05:43,792 - etl_procedures.extract - INFO - [*] Conexion cerrada
+2025-11-23 17:05:43,792 - __main__ - ERROR - [FAIL] ERROR EN EXTRACCION: 1054 (42S22): Unknown column 'p.DescripcionProyecto' in 'field list'
+2025-11-23 17:05:43,794 - __main__ - ERROR - [FAIL] Pipeline fallido: 1054 (42S22): Unknown column 'p.DescripcionProyecto' in 'field list'
