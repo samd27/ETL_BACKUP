@@ -17,7 +17,8 @@ def cubo_base_proyectos(df: pd.DataFrame) -> pd.DataFrame:
             'ProductividadPromedio': 'mean'
         },
         margins=True,
-        margins_name='TOTAL'
+        margins_name='TOTAL',
+        observed=False
     )
 
 def cubo_productividad_calidad(df: pd.DataFrame) -> pd.DataFrame:
@@ -36,7 +37,8 @@ def cubo_productividad_calidad(df: pd.DataFrame) -> pd.DataFrame:
             'DesviacionPresupuestal': 'mean'
         },
         margins=True,
-        fill_value=0
+        fill_value=0,
+        observed=False
     )
 
 def cubo_financiero(df: pd.DataFrame) -> pd.DataFrame:
@@ -56,7 +58,8 @@ def cubo_financiero(df: pd.DataFrame) -> pd.DataFrame:
             'DesviacionPresupuestal': 'sum'
         },
         margins=True,
-        fill_value=0
+        fill_value=0,
+        observed=False
     )
 
 def cubo_temporal_estado(df: pd.DataFrame) -> pd.DataFrame:
@@ -314,7 +317,8 @@ def cubo_kpis_por_categoria(df: pd.DataFrame) -> pd.DataFrame:
                 'ID_Proyecto': 'count'
             },
             margins=True,
-            margins_name='TOTAL'
+            margins_name='TOTAL',
+            observed=False
         )
     except Exception as e:
         print(f"Error en cubo_kpis_por_categoria: {e}")
