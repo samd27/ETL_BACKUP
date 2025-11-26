@@ -35,7 +35,6 @@ def calculate_project_metrics(proyecto_id: int, df_dict: Dict[str, pd.DataFrame]
     metrics = {
         'ID_Hecho': 0,  # Se asignará después
         'ID_Proyecto': proyecto_id,
-        'ID_Riesgo': None,  # NULL ya que se eliminó tabla riesgos
         'ID_Gasto': 0,
         'ID_FechaInicio': 0,
         'ID_FechaFin': 0,
@@ -305,8 +304,8 @@ def transform(df_dict: Dict[str, pd.DataFrame]) -> pd.DataFrame:
     if not hechos_data:
         logger.warning('hechos_proyectos: No se pudieron calcular métricas para ningún proyecto')
         return pd.DataFrame(columns=[
-            'ID_Hecho', 'ID_Proyecto', 'ID_Riesgo', 'ID_Gasto', 'ID_FechaInicio', 'ID_FechaFin',
-            'RetrasoInicioDias', 'RetrasoFinalDias', 'Presupuesto', 'CosteReal', 
+            'ID_Hecho', 'ID_Proyecto', 'ID_Gasto', 'ID_FechaInicio', 'ID_FechaFin',
+            'RetrasoInicioDias', 'RetrasoFinalDias', 'Presupuesto', 'CosteReal',
             'DesviacionPresupuestal', 'PenalizacionesMonto', 'ProporcionCAPEX_OPEX', 
             'TasaDeErroresEncontrados', 'TasaDeExitoEnPruebas', 'ProductividadPromedio', 
             'PorcentajeTareasRetrasadas', 'PorcentajeHitosRetrasados'
@@ -316,8 +315,8 @@ def transform(df_dict: Dict[str, pd.DataFrame]) -> pd.DataFrame:
     
     # Reordenar columnas según schema DW exacto
     columnas_ordenadas = [
-        'ID_Hecho', 'ID_Proyecto', 'ID_Riesgo', 'ID_Gasto', 'ID_FechaInicio', 'ID_FechaFin',
-        'RetrasoInicioDias', 'RetrasoFinalDias', 'Presupuesto', 'CosteReal', 
+        'ID_Hecho', 'ID_Proyecto', 'ID_Gasto', 'ID_FechaInicio', 'ID_FechaFin',
+        'RetrasoInicioDias', 'RetrasoFinalDias', 'Presupuesto', 'CosteReal',
         'DesviacionPresupuestal', 'PenalizacionesMonto', 'ProporcionCAPEX_OPEX', 
         'TasaDeErroresEncontrados', 'TasaDeExitoEnPruebas', 'ProductividadPromedio', 
         'PorcentajeTareasRetrasadas', 'PorcentajeHitosRetrasados'
