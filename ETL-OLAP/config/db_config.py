@@ -11,14 +11,14 @@ DB_OLTP = {
     "host": os.getenv("OLTP_HOST", "localhost"),
     "port": int(os.getenv("OLTP_PORT", "3306")),
     "user": os.getenv("OLTP_USER", "root"),
-    "password": os.getenv("OLTP_PASS", ""),
+    "password": os. getenv("OLTP_PASS", ""),
     "database": os.getenv("OLTP_DB", "sistema_gestion")
 }
 
-# Agregar SSL si está habilitado (requerido para TiDB Cloud)
-if os.getenv("OLTP_SSL", "false").lower() == "true":
-    DB_OLTP["ssl_verify_cert"] = True
-    DB_OLTP["ssl_verify_identity"] = True
+# Agregar SSL si está habilitado (compatible con GitHub Actions)
+if os. getenv("OLTP_SSL", "false").lower() == "true":
+    DB_OLTP["ssl_disabled"] = False  # Habilitar SSL
+    # NO usar ssl_verify_cert ni ssl_verify_identity en GitHub Actions
 
 # Configuración DW con soporte para TiDB Cloud
 DB_DW = {
@@ -29,10 +29,9 @@ DB_DW = {
     "database": os.getenv("DW_DB", "dw_proyectos")
 }
 
-# Agregar SSL si está habilitado (requerido para TiDB Cloud)
+# Agregar SSL si está habilitado (compatible con GitHub Actions)
 if os.getenv("DW_SSL", "false").lower() == "true":
-    DB_DW["ssl_verify_cert"] = True
-    DB_DW["ssl_verify_identity"] = True
+    DB_DW["ssl_disabled"] = False  # Habilitar SSL
 
 def get_dw_connection():
     """
@@ -55,7 +54,7 @@ def get_dw_sqlalchemy_url():
     
     # Agregar parámetros SSL si están configurados
     if os.getenv("DW_SSL", "false").lower() == "true":
-        url += "?ssl_verify_cert=true&ssl_verify_identity=true"
+        url += "?ssl=true"
     
     return url
 
@@ -67,7 +66,7 @@ def get_oltp_sqlalchemy_url():
     url = f"mysql+pymysql://{DB_OLTP['user']}:{DB_OLTP['password']}@{DB_OLTP['host']}:{port}/{DB_OLTP['database']}"
     
     # Agregar parámetros SSL si están configurados
-    if os.getenv("OLTP_SSL", "false").lower() == "true":
-        url += "?ssl_verify_cert=true&ssl_verify_identity=true"
+    if os.getenv("OLTP_SSL", "false"). lower() == "true":
+        url += "?ssl=true"
     
     return url
