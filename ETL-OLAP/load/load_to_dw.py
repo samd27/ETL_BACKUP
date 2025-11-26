@@ -306,7 +306,6 @@ def get_table_schemas():
         'hechos_proyectos': """
             ID_Hecho BIGINT PRIMARY KEY,
             ID_Proyecto INT NOT NULL,
-            ID_Riesgo INT,
             ID_Gasto INT,
             ID_FechaInicio INT,
             ID_FechaFin INT,
@@ -363,9 +362,9 @@ def load_all_to_dw(transformed_data: Dict[str, pd.DataFrame]) -> Dict[str, int]:
         # Desactivar foreign key checks temporalmente para la carga completa
         loader.cursor.execute("SET FOREIGN_KEY_CHECKS = 0")
         loader.connection.commit()
-        logger.info("⚠️ Foreign Key Checks DESACTIVADOS temporalmente")
+        logger.info("Foreign Key Checks DESACTIVADOS temporalmente")
         
-        logger.info("🚀INICIANDO CARGA AL DATA WAREHOUSE")
+        logger.info("INICIANDO CARGA AL DATA WAREHOUSE")
         logger.info(f" Tablas a cargar: {len(load_order)}")
         logger.info("Asumiendo que el esquema del DW ya existe")
         
