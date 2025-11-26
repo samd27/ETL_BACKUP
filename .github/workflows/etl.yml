@@ -43,7 +43,7 @@ jobs:
         DW_SSL: ${{ secrets.DW_SSL }}
       run: |
         cd ETL-OLAP
-        python main_etl.py
+        python main_etl.py --full-load
     
     - name: Mostrar resultado
       if: always()
